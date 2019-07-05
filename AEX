@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="theKramer77"
+           fetch="https://github.com/theKramer77/"
+           revision="pie"
+           remote="theKramer77"
+           />
+<!-- Device -->
+  <project name="device_lge_h811" path="device/lge/h811" />
+  <project name="device_lge_h815" path="device/lge/h815" />
+
+<!-- Common Tree -->
+  <project name="device_lge_g4-common-LOS" path="device/lge/g4-common" />
+
+<!-- Kernel -->
+ <project name="Titan-Kernel-LG-G4" path="kernel/lge/msm8992"  />
+
+<!-- Vendor -->
+  <project name="vendor_lge" path="vendor/lge" />
+  
+<!-- Remove Camera repos as we have GCam inbuilt -->
+  <remove-project name="android_hardware_qcom_camera" />
+  <remove-project name="platform_packages_apps_Snap" />
+  
+<!-- Remove IPA as we have to use inbuilt IPA -->
+  <remove-project name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" />
+  
+<!-- Fix for BT Calls -->
+  <remove-project name="android_hardware_broadcom_libbt" />
+  <project path="hardware/broadcom/libbt" name="Suicide-Squirrel/android_hardware_broadcom_libbt" remote="github" revision="lineage-16.0" />
+
+<!-- Fix for Power commits missing in AEX -->
+  <remove-project name="android_hardware_qcom_power" />
+  <project path="hardware/qcom/power" name="theKramer77/hardware_qcom_power" />
+  <remove-project name="android_hardware_libhardware" />
+  <project path="hardware/libhardware" name="theKramer77/hardware_libhardware" />
+
+<!-- Fix for Log spamming commit missing in AEX -->
+  <remove-project name="android_device_qcom_common" />
+  <project path="device/qcom/common" name="theKramer77/device_qcom_common" />
+  
+</manifest>
